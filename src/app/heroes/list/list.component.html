@@ -1,0 +1,35 @@
+<h3>Listado de heroes</h3>
+
+<!-- un modulo es una simple clase que tiene un decorador, 
+ un modulo es un agrupador, encapsula una funcionalidad para poder compartirla -->
+
+<!-- nothingWasDeleted es como si fuera el id del ng-template
+ -->
+<div *ngIf="deletedHero else nothingWasDeleted">
+    <h3>
+        Heroe borrado
+        <small class="text-danger">{{deletedHero}}</small>
+    </h3>
+</div>
+
+<!-- 
+es como un div pero que no existe en el DOM, solo en el template
+es como un <></> 
+-->
+<ng-template #nothingWasDeleted>
+    <h3>
+        No ha borrado nada
+    </h3>
+</ng-template>
+
+<button
+ *ngIf="heroNames.length > 0" 
+ (click)="removeLastHero()" 
+ class="btn btn-outline-danger">
+    Borrar ultimo heroe
+</button>
+
+<!-- Directiva ngFor, en este caso recorre heroNames y mostramos los nombres -->
+<ul class="mt-2 list-group">
+    <li *ngFor="let name of heroNames" class="list-group-items">{{name}}</li>
+</ul>

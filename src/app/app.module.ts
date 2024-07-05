@@ -1,16 +1,24 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
+
+
 import { AppComponent } from './app.component';
 
+import { CounterModule } from './counter/counter.modules';
+import { HeroesModule } from './heroes/heroes.module';
+
 @NgModule({
-  declarations: [
-    AppComponent
+  declarations: [ // Componentes que se van a utilizar, hay que declararlos
+    AppComponent,
   ],
+
+  // Modulos
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CounterModule,
+    HeroesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
