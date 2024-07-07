@@ -4,9 +4,13 @@
 
 <div class="row">
     <div class="col">
-        <dbz-list [characterList]="character" ></dbz-list>
+        <dbz-list (onDeleteId)="onDeleteCharacter($event)" [characterList]="character" ></dbz-list>
     </div>
     <div class="col">
-        <add-dbz-character></add-dbz-character>
+        <!-- las () son para eventos, los [] son para propiedades, onNewCHaracter es
+         el emisior de eventos, onNewCharacter es el metodo para guardarlo en el main-page.component.ts
+        $event es el valor que se emite en el emisor de eventos
+        --> 
+        <add-dbz-character (onNewCHaracter)="onNewCharacter($event)"></add-dbz-character>
     </div>
 </div>
